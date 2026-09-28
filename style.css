@@ -1,0 +1,125 @@
+/* Color Palette & Custom Properties */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --accent-purple: #9333ea;
+  --shadow-glow: 0 10px 25px -5px rgba(168, 85, 247, 0.4);
+}
+
+/* Full Page Background & Center Alignment */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main Container Header */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.025em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Aesthetic Gradient Button */
+button {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-glow);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px -5px rgba(168, 85, 247, 0.6);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #475569;
+  box-shadow: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status Message */
+#status {
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  min-height: 28px;
+  text-align: center;
+}
+
+/* Post Cards Container */
+#postList {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Glassmorphism Card Styling */
+#postList li {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-left: 6px solid var(--accent-purple);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#postList li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* First line formatting (Title) */
+#postList li::first-line {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--accent-purple);
+  text-transform: capitalize;
+}
+
+/* Smooth Fade-in Animation for Posts */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
